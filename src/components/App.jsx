@@ -18,9 +18,9 @@ export class App extends Component {
   };
   componentDidMount() {
     const contactStorage = load('contactList');
-    contactStorage
-      ? this.setState({ contacts: contactStorage })
-      : this.setState({ contacts: [] });
+    if (contactStorage) {
+      this.setState({ contacts: contactStorage });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
